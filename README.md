@@ -6,7 +6,7 @@
 - Realizar testes unitários;
 - Aplicar Clean Code;
 - Aplicar SOLID;
-- Link do Trello - https://trello.com/b/FCl7am5C/projeto-1-m%C3%B3dulo-3-kambam`;
+- Link do Trello - https://trello.com/b/FCl7am5C/projeto-1-m%C3%B3dulo-3-kambam;
 
 #
 
