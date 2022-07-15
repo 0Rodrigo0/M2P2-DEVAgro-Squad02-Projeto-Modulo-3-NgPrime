@@ -1,4 +1,4 @@
-# DEVInAgro - SQUAD 02
+# DEVInAgro - PrimeNG e testes.
 
 ### Padrões para desenvolvimento
 
