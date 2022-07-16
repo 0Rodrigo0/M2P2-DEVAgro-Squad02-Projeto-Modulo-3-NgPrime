@@ -20,14 +20,25 @@
               >
                 <div class="form-outline form-white mb-4">
                   <label class="form-label" for="typeEmailX">EMAIL</label>
+
                   <input
+                    formControlName="email"
+                    id="float-input"
+                    type="email"
+                    pinputtext=""
+                    class="p-inputtext p-component p-element ng-valid ng-dirty ng-touched"
+                    required
+                    style="width: 100%"
+                  />
+
+                  <!--<input
                     type="email"
                     id="typeEmailX"
                     class="form-control form-control-lg"
                     placeholder="Email"
                     formControlName="email"
                     required
-                  />
+                  />-->
                   <div *ngIf="email.invalid && formDir.submitted">
                     <small *ngIf="email.errors?.['required']"
                       >É necessário informar um e-mail.
@@ -42,14 +53,25 @@
                   <div class="box-senha">
                     <label class="form-label" for="typePasswordX">SENHA</label>
                   </div>
+
                   <input
+                    _ngcontent-gto-c145=""
+                    type="password"
+                    formControlName="password"
+                    pinputtext
+                    class="p-inputtext p-component p-element ng-valid ng-dirty ng-touched"
+                    required
+                    style="width: 100%"
+                  />
+
+                  <!--<input
                     type="password"
                     id="typePasswordX"
                     class="form-control form-control-lg"
                     placeholder="Senha"
                     formControlName="password"
                     required
-                  />
+                  />-->
                   <div *ngIf="password.invalid && formDir.submitted">
                     <p *ngIf="password.errors?.['required']">
                       É necessário informar uma senha.
@@ -59,7 +81,6 @@
                 <!--<button class="btn btn-outline-light btn-lg" type="submit">
                   Log in
                 </button>-->
-
                 <button
                   _ngcontent-xue-c92=""
                   pbutton=""
