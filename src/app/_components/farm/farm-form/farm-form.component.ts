@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { IAlert } from 'src/app/_interfaces/alert/ialert';
 import { IFarm } from 'src/app/_interfaces/farm/ifarm';
 import { AlertService } from 'src/app/_shared/alert/alert.service';
@@ -28,7 +32,7 @@ export class FarmFormComponent implements OnInit {
     private alertService: AlertService,
     private grainService: GrainService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.farmForm = this.getFormConfiguration();
@@ -46,9 +50,11 @@ export class FarmFormComponent implements OnInit {
   }
 
   getAllGrainsByCompany() {
-    this.grainService.getAllGrainsByCompany(this.companyIdFromCurrentUser).subscribe((data) => {
-      this.grainsFromCompany = data;
-    });
+    this.grainService
+      .getAllGrainsByCompany(this.companyIdFromCurrentUser)
+      .subscribe((data) => {
+        this.grainsFromCompany = data;
+      });
   }
 
   get name() {
@@ -124,11 +130,13 @@ export class FarmFormComponent implements OnInit {
       })
       .add(() => {
         this.requestFinished = true;
-        this.alertService.showGenericAlert(this.alertMessage = {
-          title: '',
-          message: 'Fazenda cadastrada com sucesso!',
-          typeAlert: SUCCESS,
-        });
+        this.alertService.showGenericAlert(
+          (this.alertMessage = {
+            title: '',
+            message: 'Fazenda cadastrada com sucesso!',
+            typeAlert: SUCCESS,
+          })
+        );
 
         this.router.navigate(['farm/list']);
       });

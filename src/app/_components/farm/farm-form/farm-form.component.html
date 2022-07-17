@@ -19,6 +19,17 @@
           <div class="form-group mt-4 me-4 ms-4">
             <label for="name-farm">NOME</label>
             <input
+              _ngcontent-hsb-c145
+              name="name-farm"
+              id="name-farm"
+              type="text"
+              formControlName="name"
+              class="p-inputtext p-component p-element ng-pristine ng-valid ng-touched"
+              style="width: 100%"
+              placeholder="Nome da fazenda"
+              required
+            />
+            <!--<input
               type="text"
               class="form-control"
               id="name-farm"
@@ -26,7 +37,7 @@
               formControlName="name"
               placeholder="Nome da fazenda"
               required
-            />
+            />-->
             <div *ngIf="name.invalid && formDir.submitted && !formSended">
               <small *ngIf="name.errors?.['required']" class="alert-required"
                 >O nome da fazenda é obrigatório.
@@ -37,6 +48,17 @@
           <div class="form-group mt-4 me-4 ms-4">
             <label for="address-farm">ENDEREÇO DA FILIAL</label>
             <input
+              _ngcontent-hsb-c145
+              id="address-farm"
+              type="text"
+              name="address-farm"
+              formControlName="address"
+              class="p-inputtext p-component p-element ng-pristine ng-valid ng-touched"
+              style="width: 100%"
+              placeholder="Endereço da filial"
+              required
+            />
+            <!--<input
               type="text"
               class="form-control"
               id="address-farm"
@@ -44,7 +66,7 @@
               formControlName="address"
               placeholder="Endereço da filial"
               required
-            />
+            />-->
             <div *ngIf="address.invalid && formDir.submitted && !formSended">
               <small *ngIf="address.errors?.['required']" class="alert-required"
                 >O endereço da fazenda é obrigatório.
@@ -58,6 +80,7 @@
               class="form-select"
               aria-label="Default select example"
               formControlName="grainId"
+              style="height: 3rem"
               required
             >
               <option selected disabled value="">Selecione o grão</option>
@@ -78,6 +101,17 @@
           <div class="form-group mt-4 mb-4 me-4 ms-4">
             <label for="last-harvest-date">DATA DA ÚLTIMA COLHEITA</label>
             <input
+              _ngcontent-hsb-c145
+              id="last-harvest-date"
+              type="date"
+              name="last-harvest-date"
+              formControlName="lastHarvest"
+              class="p-inputtext p-component p-element ng-pristine ng-valid ng-touched"
+              style="width: 100%"
+              placeholder="Data dd/mm/aaaa"
+              required
+            />
+            <!--<input
               type="date"
               class="form-control"
               id="last-harvest-date"
@@ -85,7 +119,7 @@
               formControlName="lastHarvest"
               placeholder="Data dd/mm/aaaa"
               required
-            />
+            />-->
             <div
               *ngIf="lastHarvest.invalid && formDir.submitted && !formSended"
             >
@@ -99,7 +133,20 @@
 
           <div class="form-group mt-4 me-4 ms-4">
             <label for="stock">ESTOQUE INICIAL</label>
+
             <input
+              _ngcontent-hsb-c145
+              id="stock"
+              type="number"
+              name="stock"
+              formControlName="stock"
+              class="p-inputtext p-component p-element ng-pristine ng-valid ng-touched"
+              style="width: 100%"
+              placeholder="Estoque inicial"
+              required
+            />
+
+            <!--<input
               type="number"
               class="form-control"
               id="stock"
@@ -107,7 +154,7 @@
               formControlName="stock"
               placeholder="Estoque inicial"
               required=""
-            />
+            />-->
             <div *ngIf="stock.invalid && formDir.submitted && !formSended">
               <small *ngIf="stock.errors?.['required']" class="alert-required"
                 >O estoque inicial é obrigatório.

@@ -28,6 +28,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { Error404Component } from './_views/error404/error404.component';
 import { GrainEditComponent } from './_views/grain/grain-edit/grain-edit.component';
 import { EmployeeEditComponent } from './_components/employee/employee-edit/employee-edit/employee-edit.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -65,9 +67,11 @@ const maskConfig: Partial<IConfig> = {
     NgxMaskModule.forRoot(maskConfig), //https://www.npmjs.com/package/ngx-mask (como usar)
     MatTableModule,
     MatPaginatorModule,
-    MatIconModule
+    MatIconModule,
+    DropdownModule,
+    ButtonModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
