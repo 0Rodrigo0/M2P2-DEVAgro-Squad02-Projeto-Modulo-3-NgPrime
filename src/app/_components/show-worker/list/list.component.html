@@ -79,13 +79,23 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
   </table>
 
   <div class="btn-include-grain">
-    <button
+    <!--<button
       type="button"
       class="btn btn-success btn-lg me-4 mt-4 mb-4"
+      routerLink="/employee/form"
+    >
+      +
+    </button>-->
+    <button
+      pButton
+      pRipple
+      type="button"
+      label=""
+      class="p-button-rounded p-button-success"
+      style="height: 15%; margin-top: 2rem"
       routerLink="/employee/form"
     >
       +

@@ -31,6 +31,7 @@ import { EmployeeEditComponent } from './_components/employee/employee-edit/empl
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { TableModule } from 'primeng/table';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -72,6 +73,7 @@ const maskConfig: Partial<IConfig> = {
     DropdownModule,
     ButtonModule,
     CardModule,
+    TableModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],
