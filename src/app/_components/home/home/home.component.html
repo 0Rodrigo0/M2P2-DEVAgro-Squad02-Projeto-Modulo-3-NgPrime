@@ -13,18 +13,46 @@
     <div class="two-panels">
       <div class="amount-farms mt-2">
         <div class="card">
-          <div class="card-body">
+          <p-card class="card-body">
+            <h6
+              style="
+                color: var(--main-color);
+                font-weight: bold;
+                font-size: 1rem;
+              "
+            >
+              Total de propriedades instaladas
+            </h6>
+            <p style="font-size: 2rem; font-weight: bold">
+              {{ totalPropertiesInstalled }}
+            </p>
+          </p-card>
+          <!--<div class="card-body">
             <h6 class="card-title">Total de propriedades instaladas</h6>
             <p>{{ totalPropertiesInstalled }}</p>
-          </div>
+          </div>-->
         </div>
       </div>
       <div class="amount-employees mt-3">
         <div class="card">
-          <div class="card-body">
+          <p-card class="card-body">
+            <h6
+              style="
+                color: var(--main-color);
+                font-weight: bold;
+                font-size: 1rem;
+              "
+            >
+              Total de Funcionários
+            </h6>
+            <p style="font-size: 2rem; font-weight: bold">
+              {{ totalEmployees }}
+            </p>
+          </p-card>
+          <!--<div class="card-body">
             <h6 class="card-title">Total de Funcionários</h6>
             <p>{{ totalEmployees }}</p>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
@@ -79,7 +107,8 @@
                 [legend]="chartOptions.legend"
                 [colors]="chartOptions.colors"
                 [grid]="chartOptions.grid"
-              ></apx-chart>
+              ></apx-chart
+              >-->
             </div>
           </div>
         </div>

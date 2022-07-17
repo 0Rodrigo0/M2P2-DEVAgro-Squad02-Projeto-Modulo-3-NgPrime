@@ -30,6 +30,7 @@ import { GrainEditComponent } from './_views/grain/grain-edit/grain-edit.compone
 import { EmployeeEditComponent } from './_components/employee/employee-edit/employee-edit/employee-edit.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -70,6 +71,7 @@ const maskConfig: Partial<IConfig> = {
     MatIconModule,
     DropdownModule,
     ButtonModule,
+    CardModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],
