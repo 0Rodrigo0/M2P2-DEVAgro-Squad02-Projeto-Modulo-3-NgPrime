@@ -6,11 +6,19 @@ import { Observable, firstValueFrom, elementAt } from 'rxjs';
 import { IGrainByCompany } from 'src/app/_interfaces/grain/igrain-by-company';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GrainService {
-
-  constructor(private http: HttpClient) { }
+  isGrainFromCompany(
+    id: any
+  ):
+    | boolean
+    | import('@angular/router').UrlTree
+    | Observable<boolean | import('@angular/router').UrlTree>
+    | Promise<boolean | import('@angular/router').UrlTree> {
+    throw new Error('Method not implemented.');
+  }
+  constructor(private http: HttpClient) {}
 
   getAllGrains() {
     return this.http.get(`${API_BASE}/grain/list`);
@@ -20,31 +28,34 @@ export class GrainService {
     return this.http.post<any>(`${API_BASE}/grain`, grain);
   }
 
-  getAllGrainsByCompany(companyId: string | null): Observable<IGrainByCompany[]> {
-    return this.http.get<IGrainByCompany[]>(`${API_BASE}/grain/grains-by-company?companyId=${companyId}`);
+  getAllGrainsByCompany(
+    companyId: string | null
+  ): Observable<IGrainByCompany[]> {
+    return this.http.get<IGrainByCompany[]>(
+      `${API_BASE}/grain/grains-by-company?companyId=${companyId}`
+    );
   }
 
   async getGrainFromCompany(id: string) {
     let grain = null;
 
-    await firstValueFrom(this.getAllGrainsByCompany(localStorage.getItem('companyId'))).then(
-      (res: any) => {
-        console.log(res);
-        grain = res.find((grain: any) => grain.id == id)
-      }
-    );
+    await firstValueFrom(
+      this.getAllGrainsByCompany(localStorage.getItem('companyId'))
+    ).then((res: any) => {
+      console.log(res);
+      grain = res.find((grain: any) => grain.id == id);
+    });
 
     console.log(grain);
 
     return grain;
   }
 
-
   async getGrainById(id: string) {
     let grain: any;
 
     await firstValueFrom(this.getAllGrains()).then(
-      (res: any) => grain = res.filter((grain: any) => grain.id == id)
+      (res: any) => (grain = res.filter((grain: any) => grain.id == id))
     );
 
     return grain;

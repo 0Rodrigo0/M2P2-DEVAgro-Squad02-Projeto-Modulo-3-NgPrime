@@ -32,6 +32,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
+import { CommonModule } from '@angular/common';
+import { InputTextModule } from 'primeng/inputtext';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -56,6 +58,7 @@ const maskConfig: Partial<IConfig> = {
     Error404Component,
     GrainEditComponent,
     EmployeeEditComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +77,8 @@ const maskConfig: Partial<IConfig> = {
     ButtonModule,
     CardModule,
     TableModule,
+    CommonModule,
+    InputTextModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],

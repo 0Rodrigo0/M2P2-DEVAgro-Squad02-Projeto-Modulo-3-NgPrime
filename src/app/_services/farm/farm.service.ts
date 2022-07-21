@@ -1,5 +1,5 @@
 import { CdkTableDataSourceInput } from '@angular/cdk/table';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { first, Observable, tap } from 'rxjs';
 import { IFarm } from 'src/app/_interfaces/farm/ifarm';
@@ -12,7 +12,7 @@ import { API_BASE } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class FarmService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   saveFarm(farm: IFarm): Observable<IFarm> {
     return this.http.post<IFarm>(`${API_BASE}/farm`, farm);
@@ -23,25 +23,35 @@ export class FarmService {
   }
 
   getAllfarmCompanyLoggedIn(idCompany: any) {
-    return this.http.get(`${API_BASE}/farm/quantity-by-company?companyId=${idCompany}`);
+    return this.http.get(
+      `${API_BASE}/farm/quantity-by-company?companyId=${idCompany}`
+    );
   }
 
   getAllgrainCompanyLoggedIn(idCompany: any) {
-    return this.http.get<IGrainCompanyLoggedIn>(`${API_BASE}/farm/list-grain-stock-by-company?companyId=${idCompany}`);
+    return this.http.get<IGrainCompanyLoggedIn>(
+      `${API_BASE}/farm/list-grain-stock-by-company?companyId=${idCompany}`
+    );
   }
 
   getAllFarmsByCompany(companyId: string | null) {
     if (companyId == null) {
-      throw Error("O id da empresa do usuário logado não foi encontrado.")
+      throw Error('O id da empresa do usuário logado não foi encontrado.');
     }
-    return this.http.get(`${API_BASE}/farm/farms-by-company?companyId=${companyId}`);
+    return this.http.get(
+      `${API_BASE}/farm/farms-by-company?companyId=${companyId}`
+    );
   }
 
-  getNextHarvestByCompany(companyId: string | null): Observable<IFarmNextHarvest[]> {
+  getNextHarvestByCompany(
+    companyId: string | null
+  ): Observable<IFarmNextHarvest[]> {
     if (companyId == null) {
-      throw Error("O id da empresa do usuário logado não foi encontrado.")
+      throw Error('O id da empresa do usuário logado não foi encontrado.');
     }
-    return this.http.get<IFarmNextHarvest[]>(`${API_BASE}/farm/list-farm-next-harvest?companyId=${companyId}`);
+    return this.http.get<IFarmNextHarvest[]>(
+      `${API_BASE}/farm/list-farm-next-harvest?companyId=${companyId}`
+    );
   }
 
   putFarm(payload: IFarmPut) {
@@ -52,12 +62,9 @@ export class FarmService {
       grainId: payload.grainId,
       lastHarvest: payload.lastHarvest,
       stock: payload.stock,
-      harvested: payload.harvested ? payload.harvested : false
-    }
+      harvested: payload.harvested ? payload.harvested : false,
+    };
 
     return this.http.put(`${API_BASE}/farm/${payload.id}`, body);
   }
-
 }
-
-

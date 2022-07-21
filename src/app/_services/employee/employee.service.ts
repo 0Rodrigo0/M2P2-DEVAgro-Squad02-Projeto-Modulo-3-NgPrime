@@ -33,8 +33,12 @@ export class EmployeeService {
     return firstValueFrom(this.http.get(`${API_BASE}/employee/list`));
   }
 
-  getAllEmployeesByCompany(companyId: string | null): Observable<IEmployeeByCompany[]> {
-    return this.http.get<IEmployeeByCompany[]>(`${API_BASE}/employee/employees-by-company?companyId=${companyId}`);
+  getAllEmployeesByCompany(
+    companyId: string | null
+  ): Observable<IEmployeeByCompany[]> {
+    return this.http.get<IEmployeeByCompany[]>(
+      `${API_BASE}/employee/employees-by-company?companyId=${companyId}`
+    );
   }
 
   updateEmployeeById(id: string | undefined, payload: IEmployee) {
@@ -63,14 +67,14 @@ export class EmployeeService {
     return this.http.put(`${API_BASE}/employee/${id}`, employee);
   }
 
-  async getEmployeeFromCompany(id: string){
+  async getEmployeeFromCompany(id: string) {
     let employee = null;
 
-    await firstValueFrom(this.getAllEmployeesByCompany(localStorage.getItem('companyId'))).then(
-      (res: any) => {
-        employee = res.find((employee: any) => employee.id == id);
-      }
-    );
+    await firstValueFrom(
+      this.getAllEmployeesByCompany(localStorage.getItem('companyId'))
+    ).then((res: any) => {
+      employee = res.find((employee: any) => employee.id == id);
+    });
 
     return employee;
   }

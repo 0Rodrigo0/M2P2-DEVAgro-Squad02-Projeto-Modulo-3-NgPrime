@@ -2,15 +2,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FarmListComponent } from './farm-list.component';
 
-describe('FarmListComponent', () => {
+describe(FarmListComponent.name, () => {
   let component: FarmListComponent;
   let fixture: ComponentFixture<FarmListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FarmListComponent ]
-    })
-    .compileComponents();
+      declarations: [FarmListComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
