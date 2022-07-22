@@ -1,26 +1,32 @@
 import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserServiceService } from '../../_services/user/user-service.service';
 import { AlertService } from 'src/app/_shared/alert/alert.service';
 import { IAlert } from 'src/app/_interfaces/alert/ialert';
 import { ERROR } from 'src/environments/environment';
-import { eventListeners } from '@popperjs/core';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
   errorMsg: string = 'Usuário e/ou senha inválidos.';
   loginFormGroup!: UntypedFormGroup;
   loginSuccessful: boolean = true;
   alertMessage!: IAlert;
   checkForgotPassword: boolean = false;
 
-  constructor(private userService: UserServiceService, private route: Router, private alertService: AlertService) { }
+  constructor(
+    private userService: UserServiceService,
+    private route: Router,
+    private alertService: AlertService
+  ) {}
 
   ngOnInit(): void {
     this.loginFormGroup = this.getFormConfiguration();
@@ -36,11 +42,13 @@ export class LoginComponent implements OnInit {
 
   getFormConfiguration() {
     return new UntypedFormGroup({
-      email: new UntypedFormControl(null, [Validators.required, Validators.email]),
-      password: new UntypedFormControl(null, [Validators.required])
+      email: new UntypedFormControl(null, [
+        Validators.required,
+        Validators.email,
+      ]),
+      password: new UntypedFormControl(null, [Validators.required]),
     });
   }
-
 
   submit() {
     if (this.loginFormGroup.invalid) {
@@ -53,7 +61,9 @@ export class LoginComponent implements OnInit {
   async validateUserLogin() {
     let userIsCorrect: boolean = false;
 
-    await this.userService.verifyUser(this.email.value, this.password.value).then(res => userIsCorrect = res);
+    await this.userService
+      .verifyUser(this.email.value, this.password.value)
+      .then((res) => (userIsCorrect = res));
 
     if (userIsCorrect) {
       this.route.navigate(['/home']);
@@ -66,11 +76,12 @@ export class LoginComponent implements OnInit {
   }
 
   forgotPassword() {
-    this.alertService.showAlertWarning(this.alertMessage = {
-      title: '',
-      message: 'Favor entrar em contato com o administrador do sistema',
-      typeAlert: ERROR,
-    });
+    this.alertService.showAlertWarning(
+      (this.alertMessage = {
+        title: '',
+        message: 'Favor entrar em contato com o administrador do sistema',
+        typeAlert: ERROR,
+      })
+    );
   }
-
 }

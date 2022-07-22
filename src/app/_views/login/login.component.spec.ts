@@ -1,6 +1,10 @@
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  EmailValidator,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';

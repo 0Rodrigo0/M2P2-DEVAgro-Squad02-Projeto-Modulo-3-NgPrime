@@ -57,6 +57,6 @@ describe('CompanyFormComponent', () => {
   });
 
   it('should create', () => {
-    expect(CompanyFormComponent).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });
