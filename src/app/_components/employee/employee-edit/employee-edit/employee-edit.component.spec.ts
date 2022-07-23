@@ -59,4 +59,45 @@ describe(EmployeeEditComponent.name, () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('o nome do botão deve ser', () => {
+    expect(component.btnName).toEqual('EDITAR');
+  });
+
+  it('o nome do menuName deve ser', () => {
+    expect(component.menuName).toEqual('Editar Funcionários');
+  });
+
+  it('o objeto allFarmsByCompanyFromEmployee deve ser', () => {
+    let farm = {
+      id: '',
+      name: '',
+      farmId: '',
+      cpf: '',
+      telephoneNumber: '',
+      hiringDate: '',
+      companyId: {
+        id: '',
+        name: '',
+        address: '',
+        cnpj: '',
+        email: '',
+        password: '',
+      },
+      job: '',
+      status: false,
+    };
+    expect(component.employee).toEqual(farm);
+  });
+
+  it('o objeto allFarmsByCompanyFromEmployee deve ser', () => {
+    let farm = {
+      id: '',
+      name: '',
+      companyId: '',
+      grainId: '',
+      lastHarvest: '',
+    };
+    expect(component.allFarmsByCompanyFromEmployee).toContain(farm);
+  });
 });

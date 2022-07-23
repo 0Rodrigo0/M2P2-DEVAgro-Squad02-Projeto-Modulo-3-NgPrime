@@ -59,4 +59,12 @@ describe(FarmFormComponent.name, () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('menu deve ter nome', () => {
+    expect(component.menuName).toEqual('Fazenda');
+  });
+
+  it('botão deve ter nome', () => {
+    expect(component.btnName).toEqual('CADASTRAR');
+  });
 });

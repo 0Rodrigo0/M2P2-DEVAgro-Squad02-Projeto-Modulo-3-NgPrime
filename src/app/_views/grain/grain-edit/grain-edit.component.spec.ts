@@ -14,6 +14,7 @@ import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { IGrainByCompany } from 'src/app/_interfaces/grain/igrain-by-company';
 
 import { GrainEditComponent } from './grain-edit.component';
 
@@ -59,4 +60,10 @@ describe('GrainEditComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // comentar - crtl+k+c
+  // it(`#${GrainEditComponent.prototype.putGrainInFarm.name} should should redirect to /funcionario`, () => {
+  //   let spy = spyOn(component, 'getFarmById');
+  //   expect(spy).toHaveBeenCalled();
+  // });
 });
