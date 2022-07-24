@@ -27,15 +27,6 @@
               placeholder="Nome"
               required
             />
-            <!--<input
-              type="text"
-              class="form-control"
-              id="name-employee"
-              name="name-employee"
-              formControlName="name"
-              placeholder="Nome"
-              required
-            />-->
             <div *ngIf="name.invalid && formDir.submitted && !formSended">
               <small *ngIf="name.errors?.['required']" class="alert-required"
                 >O nome do funcionário é obrigatório.
@@ -77,16 +68,6 @@
               [mask]="'000.000.000-99'"
               required
             />
-            <!--<input
-              type="text"
-              class="form-control"
-              id="cpf-employee"
-              name="cpf-employee"
-              formControlName="cpf"
-              [mask]="'000.000.000-99'"
-              placeholder="CPF"
-              required
-            />-->
             <div *ngIf="cpf.invalid && formDir.submitted && !formSended">
               <small *ngIf="cpf.errors?.['pattern']"
                 >O CPF precisa corresponder a um formato válido.
@@ -110,16 +91,6 @@
               [mask]="'(00)00000-0009'"
               required
             />
-            <!--<input
-              type="text"
-              class="form-control"
-              id="phone-employee"
-              name="phone-employee"
-              formControlName="telephoneNumber"
-              [mask]="'(00)00000-0009'"
-              placeholder="Telefone"
-              required
-            />-->
             <div
               *ngIf="
                 telephoneNumber.invalid && formDir.submitted && !formSended
@@ -148,15 +119,6 @@
               placeholder="Função principal"
               required
             />
-            <!--<input
-              type="text"
-              class="form-control"
-              id="occupation-employee"
-              name="occupation-employee"
-              formControlName="job"
-              placeholder="Função principal"
-              required
-            />-->
             <div *ngIf="job.invalid && formDir.submitted && !formSended">
               <small *ngIf="job.errors?.['required']" class="alert-required"
                 >O cargo é obrigatório.

@@ -14,8 +14,6 @@ import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { EmployeeService } from 'src/app/_services/employee/employee.service';
-
 import { ShowWorkerComponent } from './show-worker.component';
 
 const maskConfig: Partial<IConfig> = {

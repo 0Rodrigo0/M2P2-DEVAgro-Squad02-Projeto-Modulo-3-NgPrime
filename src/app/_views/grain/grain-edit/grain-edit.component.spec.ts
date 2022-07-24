@@ -61,9 +61,7 @@ describe('GrainEditComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // comentar - crtl+k+c
-  // it(`#${GrainEditComponent.prototype.putGrainInFarm.name} should should redirect to /funcionario`, () => {
-  //   let spy = spyOn(component, 'getFarmById');
-  //   expect(spy).toHaveBeenCalled();
-  // });
+  it('should create', () => {
+    expect(component.menuName).toEqual('Editar Grãos');
+  });
 });

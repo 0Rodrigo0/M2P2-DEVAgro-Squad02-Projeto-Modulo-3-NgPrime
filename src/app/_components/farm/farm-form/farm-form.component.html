@@ -29,22 +29,12 @@
               placeholder="Nome da fazenda"
               required
             />
-            <!--<input
-              type="text"
-              class="form-control"
-              id="name-farm"
-              name="name-farm"
-              formControlName="name"
-              placeholder="Nome da fazenda"
-              required
-            />-->
             <div *ngIf="name.invalid && formDir.submitted && !formSended">
               <small *ngIf="name.errors?.['required']" class="alert-required"
                 >O nome da fazenda é obrigatório.
               </small>
             </div>
           </div>
-
           <div class="form-group mt-4 me-4 ms-4">
             <label for="address-farm">ENDEREÇO DA FILIAL</label>
             <input
@@ -58,15 +48,6 @@
               placeholder="Endereço da filial"
               required
             />
-            <!--<input
-              type="text"
-              class="form-control"
-              id="address-farm"
-              name="address-farm"
-              formControlName="address"
-              placeholder="Endereço da filial"
-              required
-            />-->
             <div *ngIf="address.invalid && formDir.submitted && !formSended">
               <small *ngIf="address.errors?.['required']" class="alert-required"
                 >O endereço da fazenda é obrigatório.
@@ -111,15 +92,7 @@
               placeholder="Data dd/mm/aaaa"
               required
             />
-            <!--<input
-              type="date"
-              class="form-control"
-              id="last-harvest-date"
-              name="last-harvest-date"
-              formControlName="lastHarvest"
-              placeholder="Data dd/mm/aaaa"
-              required
-            />-->
+
             <div
               *ngIf="lastHarvest.invalid && formDir.submitted && !formSended"
             >
@@ -145,16 +118,6 @@
               placeholder="Estoque inicial"
               required
             />
-
-            <!--<input
-              type="number"
-              class="form-control"
-              id="stock"
-              name="stock"
-              formControlName="stock"
-              placeholder="Estoque inicial"
-              required=""
-            />-->
             <div *ngIf="stock.invalid && formDir.submitted && !formSended">
               <small *ngIf="stock.errors?.['required']" class="alert-required"
                 >O estoque inicial é obrigatório.

@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { GrainService } from 'src/app/_services/grain/grain.service';
 import { AlertService } from 'src/app/_shared/alert/alert.service';
 import { IAlert } from 'src/app/_interfaces/alert/ialert';
@@ -9,14 +9,12 @@ import { CompanyService } from 'src/app/_services/company/company.service';
 import { Router } from '@angular/router';
 import { IFarmPut } from 'src/app/_interfaces/farm/ifarm';
 
-
 @Component({
   selector: 'app-grain-form',
   templateUrl: './grain-form.component.html',
-  styleUrls: ['./grain-form.component.css']
+  styleUrls: ['./grain-form.component.css'],
 })
 export class GrainFormComponent implements OnInit {
-
   btnName: string = 'CADASTRAR';
   menuName: string = 'Grãos';
   public grainForm: any = [];
@@ -25,7 +23,7 @@ export class GrainFormComponent implements OnInit {
   companies: any = [];
   companyId: any = 0;
   farms: any = [];
-  objFarm: any = {}
+  objFarm: any = {};
   farmProducesId: any;
   companyIdGrain: any;
   newGrainId: any;
@@ -34,12 +32,12 @@ export class GrainFormComponent implements OnInit {
     name: '',
     address: '',
     company: {
-     id: '',
-     },
+      id: '',
+    },
     grainId: '',
     lastHarvest: '',
-    stock: 0
-  }
+    stock: 0,
+  };
 
   constructor(
     private rest: GrainService,
@@ -47,8 +45,9 @@ export class GrainFormComponent implements OnInit {
     private alertService: AlertService,
     private farmService: FarmService,
     private companyService: CompanyService,
-    private router: Router) {
-    this.companyId = this.companyService.getIdCompanyLoggedIn()
+    private router: Router
+  ) {
+    this.companyId = this.companyService.getIdCompanyLoggedIn();
   }
 
   ngOnInit(): void {
@@ -58,7 +57,7 @@ export class GrainFormComponent implements OnInit {
       companyId: [this.companyId],
       nextHarvestDate: ['', [Validators.required]],
       additionalInformation: [''],
-      farmProducesId: []
+      farmProducesId: [],
     });
   }
 
@@ -68,10 +67,10 @@ export class GrainFormComponent implements OnInit {
         this.rest.postGrain(this.grainForm.value).subscribe({
           next: (v) => this.updateFarmIdgrain(v),
           error: (e) => this.messageErrorPostGrain(),
-          complete: () => ''
-        })
+          complete: () => '',
+        });
       } catch (error) {
-        this.messageErrorPostGrain()
+        this.messageErrorPostGrain();
       }
     } else {
       this.alertMessage = {
@@ -89,12 +88,11 @@ export class GrainFormComponent implements OnInit {
 
     if (this.farmProducesId != null) {
       this.putGrainInFarm();
-    }else{
+    } else {
       this.messagePostGrain(result);
-      this.router.navigate(['grain/list'])
+      this.router.navigate(['grain/list']);
     }
   }
-
 
   getAllFarmsByCompany() {
     this.farmService.getAllFarmsByCompany(this.companyId).subscribe((data) => {
@@ -111,7 +109,6 @@ export class GrainFormComponent implements OnInit {
       };
       this.alertService.showGenericAlert(this.alertMessage);
       this.grainForm.reset();
-
     } else {
       this.alertMessage = {
         title: 'Ocorreu um erro ao cadastrar o Grão',
@@ -134,15 +131,15 @@ export class GrainFormComponent implements OnInit {
     return new Promise((resolve, reject) => {
       try {
         this.farmService.getAllfarm().subscribe((data: any) => {
-          this.farm = data.find((farm: IFarmPut) => farm.id == this.farmProducesId);
+          this.farm = data.find(
+            (farm: IFarmPut) => farm.id == this.farmProducesId
+          );
           this.farm.grainId = this.newGrainId;
           resolve({ sucess: true });
         });
-
       } catch (error) {
         reject({ sucess: false });
       }
-
     });
   }
 
@@ -152,7 +149,7 @@ export class GrainFormComponent implements OnInit {
         this.farmService.putFarm(this.farm).subscribe({
           next: (v) => this.messagePostGrain(v),
           error: (e) => this.messageErrorPostGrain(),
-          complete: () => this.router.navigate(['grain/list'])
+          complete: () => this.router.navigate(['grain/list']),
         });
       }
     });
@@ -162,7 +159,4 @@ export class GrainFormComponent implements OnInit {
     let getFarmById = await this.getFarmById();
     await this.putFarm(getFarmById);
   }
-
 }
-
-

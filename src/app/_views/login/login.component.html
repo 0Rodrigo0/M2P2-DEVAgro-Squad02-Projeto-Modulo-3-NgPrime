@@ -31,15 +31,6 @@
                     required
                     style="width: 100%"
                   />
-
-                  <!--<input
-                    type="email"
-                    id="typeEmailX"
-                    class="form-control form-control-lg"
-                    placeholder="Email"
-                    formControlName="email"
-                    required
-                  />-->
                   <div *ngIf="email.invalid && formDir.submitted">
                     <small *ngIf="email.errors?.['required']"
                       >É necessário informar um e-mail.
@@ -65,24 +56,12 @@
                     required
                     style="width: 100%"
                   />
-
-                  <!--<input
-                    type="password"
-                    id="typePasswordX"
-                    class="form-control form-control-lg"
-                    placeholder="Senha"
-                    formControlName="password"
-                    required
-                  />-->
                   <div *ngIf="password.invalid && formDir.submitted">
                     <p *ngIf="password.errors?.['required']">
                       É necessário informar uma senha.
                     </p>
                   </div>
                 </div>
-                <!--<button class="btn btn-outline-light btn-lg" type="submit">
-                  Log in
-                </button>-->
                 <button
                   _ngcontent-xue-c92=""
                   pbutton=""
@@ -123,9 +102,6 @@
               <!--O evento de clique de forgotPassword precisou ser colocado para fora do formulário, pois como formulário é reativo,
               por algum motivo (acredito ser um bug do angular) ele está chamando o evento de submit junto com o evento de click.-->
               <p class="small mb-1 pb-lg-2">
-                <!--<button (click)="forgotPassword()" class="link">
-                  Esqueceu a senha?
-                </button>-->
                 <button
                   (click)="forgotPassword()"
                   _ngcontent-xue-c92=""

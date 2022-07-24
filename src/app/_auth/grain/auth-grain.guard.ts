@@ -3,7 +3,6 @@ import { GrainService } from 'src/app/_services/grain/grain.service';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
-  CanActivate,
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
@@ -15,7 +14,6 @@ import { Observable } from 'rxjs';
 export class AuthGrainGuard {
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot,
     service: GrainService
   ):
     | Observable<boolean | UrlTree>

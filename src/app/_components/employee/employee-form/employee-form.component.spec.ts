@@ -15,8 +15,6 @@ import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { EmployeeFormComponent } from './employee-form.component';
-import { IAlert } from 'src/app/_interfaces/alert/ialert';
-import { FarmFormComponent } from '../../farm/farm-form/farm-form.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -62,10 +60,10 @@ describe(EmployeeFormComponent.name, () => {
   });
 
   it('botão deve ter o nome', () => {
-    expect(component.btnName).toContain('CADASTRAR');
+    expect(component.btnName).toEqual('CADASTRAR');
   });
 
   it('menu deve ter o nome', () => {
-    expect(component.menuName).toContain('Funcionário');
+    expect(component.menuName).toEqual('Funcionário');
   });
 });
